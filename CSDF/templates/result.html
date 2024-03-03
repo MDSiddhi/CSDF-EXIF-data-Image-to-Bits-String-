@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #4b6cb7, #182848);
+            color: #283048;
+        }
+
+        .container {
+            background: transparent;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .result-box {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .result-box h1 {
+            margin-bottom: 20px;
+        }
+
+        .exif-data p,
+        .bits-string p {
+            margin-bottom: 10px;
+        }
+
+        .key {
+            font-weight: bold;
+        }
+
+        .value {
+            color: #283048;
+        }
+
+        .image-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-container img {
+            border-radius: 10px;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="result-box">
+            <h1>EXIF Data:</h1>
+            <div class="exif-data">
+                {% for key, value in exif_data.items() %}
+                    <p><span class="key">{{ key }}:</span> <span class="value">{{ value }}</span></p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="result-box">
+            <h1>Image to Bits String:</h1>
+            <div class="bits-string">
+                <p>{{ bits_string }}</p>
+            </div>
+        </div>
+        
+        <a class="btn btn-primary mt-3" href="/" role="button">Back</a>
+    </div>
+</body>
+</html>
